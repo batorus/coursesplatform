@@ -19,17 +19,17 @@ public class Lesson {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotNull(message = "Lesson name may not be null!")
-    @Size(min = 2, max = 100, message = "Lesson name must be between {min} and {max} characters long")
+    @NotNull(message = "lessonName may not be null!")
+    @Size(min = 2, max = 100, message = "lessonName must be between {min} and {max} characters long")
     @Column(unique = true)
     private String lessonName;
 
-    @NotNull(message = "Lesson description may not be null!")
-    @Size(min = 2, max = 250, message = "Lesson description must be between {min} and {max} characters long")
+    @NotNull(message = "lessonDescription may not be null!")
+    @Size(min = 2, max = 250, message = "lessonDescription must be between {min} and {max} characters long")
     private String lessonDescription;
 
-    @NotNull(message = "Content may not be null!")
-    @NotBlank(message = "Content may not be blank!")
+    @NotNull(message = "lessonContent not be null!")
+    @Size(min = 3, message = "lessonContent must be at least  {min} characters long")
     private String lessonContent;
 
 
