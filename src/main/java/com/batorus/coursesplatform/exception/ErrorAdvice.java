@@ -23,29 +23,21 @@ import java.util.Map;
 @RestControllerAdvice
 public class ErrorAdvice {
 
-//    @ExceptionHandler(MethodArgumentNotValidException.class)
-//    @ResponseStatus(HttpStatus.BAD_REQUEST)
-//    public ApiError handleMethodArgNotValid(MethodArgumentNotValidException exception, HttpServletRequest request) {
-//        ApiError error = new ApiError(400, exception.getMessage(), request.getServletPath());
-//        BindingResult bindingResult = exception.getBindingResult();
-//        Map<String, String> validationErrors = new HashMap<>();
-//        for (FieldError fieldError : bindingResult.getFieldErrors()) {
-//            validationErrors.put(fieldError.getField(), fieldError.getDefaultMessage());
-//        }
-//        error.setValidationErrors(validationErrors);
-//        return error;
-//    }
-
     @Autowired
     private ErrorAttributes errorAttributes;
 
     @ExceptionHandler({MethodArgumentNotValidException.class,
-                       ResourceNotFoundException.class,
-                       HttpRequestMethodNotSupportedException.class,
-                       DataIntegrityViolationException.class})
-    //@ResponseStatus(HttpStatus.BAD_REQUEST)
-    ResponseEntity<ApiError> handleError(WebRequest webRequest, HttpServletRequest request, HttpServletResponse response) {
-        Map<String, Object> attributes = this.errorAttributes.getErrorAttributes(webRequest, ErrorAttributeOptions.of(ErrorAttributeOptions.Include.MESSAGE, ErrorAttributeOptions.Include.BINDING_ERRORS));
+            ResourceNotFoundException.class,
+            HttpRequestMethodNotSupportedException.class,
+            DataIntegrityViolationException.class})
+        //@ResponseStatus(HttpStatus.BAD_REQUEST)
+    ResponseEntity<ApiError> handleError(WebRequest webRequest,
+                                         HttpServletRequest request,
+                                         HttpServletResponse response) {
+
+        Map<String, Object> attributes = this.errorAttributes.getErrorAttributes(webRequest,
+                                                        ErrorAttributeOptions.of(ErrorAttributeOptions.Include.MESSAGE,
+                                                                        ErrorAttributeOptions.Include.BINDING_ERRORS));
         String message = (String) attributes.get("message");
         String path = request.getServletPath();
 
