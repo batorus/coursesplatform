@@ -46,7 +46,6 @@ public class CategoryService {
     }
 
     public Category find(Long categoryId) {
-        //return postRepository.findById(postId).get();
 
         Optional<Category> categoryOptional = categoryRepository.findById(categoryId);
 
@@ -63,10 +62,6 @@ public class CategoryService {
 
     public void delete(Long categoryId) {
 
-//            return postRepository.findById(postId).map(post -> {
-//                postRepository.delete(post);
-//                return ResponseEntity.ok().build();
-//            }).orElseThrow(() -> new ResourceNotFoundException("PostId " + postId + " not found"));
         Optional<Category> categoryOptional = categoryRepository.findById(categoryId);
 
         if (!categoryOptional.isPresent())
@@ -76,7 +71,7 @@ public class CategoryService {
 
     }
 
-    public void deleteAll(){
+    public void deleteAll() {
         categoryRepository.deleteAll();
     }
 }

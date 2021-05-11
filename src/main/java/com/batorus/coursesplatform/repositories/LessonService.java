@@ -40,9 +40,8 @@ public class LessonService {
 
     public List<Lesson> saveAll(Long courseId, List<Lesson> lessonList) {
 
-       return lessonList.stream().map(lesson->save(courseId, lesson)).collect(Collectors.toList());
+        return lessonList.stream().map(lesson -> save(courseId, lesson)).collect(Collectors.toList());
     }
-
 
 
     public Lesson update(Long courseId, Long lessonId, Lesson lesson) {
