@@ -7,6 +7,8 @@ import org.hibernate.annotations.OnDeleteAction;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.Date;
 
@@ -18,15 +20,18 @@ public class Course {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Size(max = 250)
+    @NotNull(message = "courseName may not be null!")
+    @Size(min = 2, max = 100, message = "courseName must be between {min} and {max} characters long")
     @Column(unique = true)
     private String courseName;
 
-    @Size(max = 250)
+    @NotNull(message = "courseCode code may not be null!")
+    @Size(min = 2, max = 60, message = "courseCode must be between {min} and {max} characters long")
     @Column(unique = true)
     private String courseCode;
 
-    @Size(max = 250)
+    @NotNull(message = "courseDescription code may not be null!")
+    @Size(min = 2, max = 250, message = "courseDescription must be between {min} and {max} characters long")
     private String courseDescription;
 
     private float coursePrice;
