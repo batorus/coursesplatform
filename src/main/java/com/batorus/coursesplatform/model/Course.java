@@ -58,15 +58,6 @@ public class Course {
     @Column(name = "modify_date")
     private Date modifyDate;
 
-    //    private Integer rating;
-//    private String author;
-    // private String tags;
-    // private String test;
-    // private String chapters;
-    // private String videos;
-    // private String image;
-    // private String enrolls;
-
     public Course() {
     }
 
