@@ -24,10 +24,10 @@ public class CategoryController {
         return categoryService.getAllCategories();
     }
 
-    @PostMapping(path="/categories", consumes =  {
-                                            MediaType.APPLICATION_JSON_VALUE
-                                    },
-                                    produces = {MediaType.APPLICATION_JSON_VALUE})
+    @PostMapping(path = "/categories", consumes = {
+            MediaType.APPLICATION_JSON_VALUE
+    },
+            produces = {MediaType.APPLICATION_JSON_VALUE})
     public Category createAction(@Valid @RequestBody Category category) {
 
         return categoryService.save(category);

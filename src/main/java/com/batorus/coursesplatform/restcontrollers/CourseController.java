@@ -29,7 +29,7 @@ public class CourseController {
 
     @PostMapping("/categories/{categoryId}/courses")
     public Course createCourseAction(@PathVariable Long categoryId,
-                                @Valid @RequestBody Course course) {
+                                     @Valid @RequestBody Course course) {
 
         return courseService.save(categoryId, course);
     }
@@ -37,8 +37,8 @@ public class CourseController {
 
     @PutMapping("/categories/{categoryId}/courses/{courseId}")
     public Course updateCourseAction(@PathVariable Long categoryId,
-                                @PathVariable Long courseId,
-                                @Valid @RequestBody Course course) {
+                                     @PathVariable Long courseId,
+                                     @Valid @RequestBody Course course) {
 
         return courseService.update(categoryId, courseId, course);
     }

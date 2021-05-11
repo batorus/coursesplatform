@@ -29,22 +29,22 @@ public class LessonController {
 
     @PostMapping("/courses/{courseId}/lessons")
     public Lesson createAction(@PathVariable Long courseId,
-                                     @Valid @RequestBody Lesson lesson) {
+                               @Valid @RequestBody Lesson lesson) {
 
         return lessonService.save(courseId, lesson);
     }
 
     @PostMapping("/courses/{courseId}/lessons/savebatch")
     public List<Lesson> saveAllAction(@PathVariable Long courseId,
-                                             @RequestBody List<Lesson> lessonList) {
+                                      @RequestBody List<Lesson> lessonList) {
 
         return lessonService.saveAll(courseId, lessonList);
     }
 
     @PutMapping("/courses/{courseId}/lessons/{lessonId}")
     public Lesson updateAction(@PathVariable Long courseId,
-                                     @PathVariable Long lessonId,
-                                     @Valid @RequestBody Lesson lesson) {
+                               @PathVariable Long lessonId,
+                               @Valid @RequestBody Lesson lesson) {
 
         return lessonService.update(courseId, lessonId, lesson);
     }
