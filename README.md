@@ -6,9 +6,9 @@ This is a Rest API built with Spring Framework that emulates a Courses platform.
 
 ### Categories Controller:
 
-GET /api/v1/categories listAction
+GET /api/v1/categories 
 
-POST /api/v1/categories createAction
+POST /api/v1/categories 
 
 GET /api/v1/categories/{categoryId}     
 
