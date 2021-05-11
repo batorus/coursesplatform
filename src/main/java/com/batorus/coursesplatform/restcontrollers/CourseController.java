@@ -44,13 +44,13 @@ public class CourseController {
     }
 
     @GetMapping("/courses/{courseId}")
-    public Course getCourseAction(@PathVariable Long courseId) {
+    public Course getOneCourseAction(@PathVariable Long courseId) {
 
         return courseService.find(courseId);
     }
 
     @DeleteMapping("/courses/{courseId}")
-    public ResponseEntity<String> deleteAction(@PathVariable Long courseId) {
+    public ResponseEntity<String> deleteCourseAction(@PathVariable Long courseId) {
 
         courseService.delete(courseId);
         return new ResponseEntity<>("Deleted successfully!", HttpStatus.OK);

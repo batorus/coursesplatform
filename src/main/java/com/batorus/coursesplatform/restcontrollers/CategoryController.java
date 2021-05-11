@@ -19,7 +19,7 @@ public class CategoryController {
     CategoryService categoryService;
 
     @GetMapping(path = "/categories", produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<Category> listAction() {
+    public List<Category> listCategoriesAction() {
 
         return categoryService.getAllCategories();
     }
@@ -28,20 +28,20 @@ public class CategoryController {
             MediaType.APPLICATION_JSON_VALUE
     },
             produces = {MediaType.APPLICATION_JSON_VALUE})
-    public Category createAction(@Valid @RequestBody Category category) {
+    public Category createCategoryAction(@Valid @RequestBody Category category) {
 
         return categoryService.save(category);
     }
 
 
     @PutMapping("/categories/{categoryId}")
-    public Category updatePost(@PathVariable Long categoryId, @Valid @RequestBody Category category) {
+    public Category updateCategoryAction(@PathVariable Long categoryId, @Valid @RequestBody Category category) {
 
         return categoryService.update(categoryId, category);
     }
 
     @GetMapping("/categories/{categoryId}")
-    public Category getCategoryAction(@PathVariable Long categoryId) {
+    public Category getOneCategoryAction(@PathVariable Long categoryId) {
 
         return categoryService.find(categoryId);
     }

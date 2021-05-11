@@ -22,27 +22,27 @@ public class LessonController {
     private CourseService courseService;
 
     @GetMapping("/courses/{courseId}/lessons")
-    public List<Lesson> getAllAction(@PathVariable(value = "courseId") Long courseId) {
+    public List<Lesson> getAllLessonsAction(@PathVariable(value = "courseId") Long courseId) {
 
         return lessonService.getAllLessonsByCourseId(courseId);
     }
 
     @PostMapping("/courses/{courseId}/lessons")
-    public Lesson createAction(@PathVariable Long courseId,
+    public Lesson createLessonAction(@PathVariable Long courseId,
                                @Valid @RequestBody Lesson lesson) {
 
         return lessonService.save(courseId, lesson);
     }
 
     @PostMapping("/courses/{courseId}/lessons/savebatch")
-    public List<Lesson> saveAllAction(@PathVariable Long courseId,
+    public List<Lesson> saveAllLessonsAction(@PathVariable Long courseId,
                                       @RequestBody List<Lesson> lessonList) {
 
         return lessonService.saveAll(courseId, lessonList);
     }
 
     @PutMapping("/courses/{courseId}/lessons/{lessonId}")
-    public Lesson updateAction(@PathVariable Long courseId,
+    public Lesson updateLessonAction(@PathVariable Long courseId,
                                @PathVariable Long lessonId,
                                @Valid @RequestBody Lesson lesson) {
 
@@ -50,13 +50,13 @@ public class LessonController {
     }
 
     @GetMapping("/lessons/{lessonId}")
-    public Lesson getOneAction(@PathVariable Long lessonId) {
+    public Lesson getOneLessonAction(@PathVariable Long lessonId) {
 
         return lessonService.find(lessonId);
     }
 
     @DeleteMapping("/lessons/{lessonId}")
-    public ResponseEntity<String> deleteAction(@PathVariable Long lessonId) {
+    public ResponseEntity<String> deleteLessonAction(@PathVariable Long lessonId) {
 
         lessonService.delete(lessonId);
         return new ResponseEntity<>("Deleted successfully!", HttpStatus.OK);

@@ -10,39 +10,39 @@ GET /api/v1/categories listAction
 
 POST /api/v1/categories createAction
 
-GET /api/v1/categories/{categoryId}     getCategoryAction
+GET /api/v1/categories/{categoryId}     
 
-PUT /api/v1/categories/{categoryId}     updateCategoryAction
+PUT /api/v1/categories/{categoryId}     
 
-DELETE/api/v1/categories/{categoryId}   deleteAction
+DELETE/api/v1/categories/{categoryId}   
 
-POST /api/v1/categories/savebatch       saveAllCategoriesAction
+POST /api/v1/categories/savebatch       
 
 
 
 ### Course Controller:
 
-GET /api/v1/categories/{categoryId}/courses getAllCoursesByCategoryIdAction
+GET /api/v1/categories/{categoryId}/courses 
 
-POST /api/v1/categories/{categoryId}/courses createCourseAction
+POST /api/v1/categories/{categoryId}/courses 
 
-PUT /api/v1/categories/{categoryId}/courses/{courseId} updateCourseAction
+PUT /api/v1/categories/{categoryId}/courses/{courseId} 
 
-GET /api/v1/courses/{courseId} getCourseAction
+GET /api/v1/courses/{courseId} 
 
-DELETE /api/v1/courses/{courseId} deleteAction
+DELETE /api/v1/courses/{courseId} 
 
 
 ### Lesson Controller
 
-GET /api/v1/courses/{courseId}/lessons getAllAction
+GET /api/v1/courses/{courseId}/lessons 
 
-POST /api/v1/courses/{courseId}/lessons createAction
+POST /api/v1/courses/{courseId}/lessons 
 
-PUT /api/v1/courses/{courseId}/lessons/{lessonId} updateAction
+PUT /api/v1/courses/{courseId}/lessons/{lessonId} 
 
-POST /api/v1/courses/{courseId}/lessons/savebatch saveAllAction
+POST /api/v1/courses/{courseId}/lessons/savebatch 
 
-GET /api/v1/lessons/{lessonId} getOneAction
+GET /api/v1/lessons/{lessonId} 
 
-DELETE /api/v1/lessons/{lessonId} deleteAction
+DELETE /api/v1/lessons/{lessonId} 
